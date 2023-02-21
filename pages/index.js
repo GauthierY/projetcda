@@ -5,8 +5,17 @@ import React from "react";
 import dynamic from "next/dynamic";
 import Connexion from "./Connexion";
 import Navbar from "../src/components/Navbar";
-import Link from "react-router-dom";
+//import { Link } from "react-router-dom";
+import Link from "next/link";
+import { useState } from "react";
+// import { getSession, useSession, signOut } from "next-auth/react";
 
+/*export default function Home() {
+  const { data: session } = useSession();
+
+  function handleSignOut() {
+    signOut();
+  */
 export default function Home() {
   return (
     <>
@@ -18,6 +27,11 @@ export default function Home() {
       <meta name="description" content="" />
       <meta name="author" content="" />
       <title>Canaan Sécurité & Gardiennage</title>
+
+      {/*SESSION */}
+      {/* {session ? User({ session, handleSignOut }) : Guest()} */}
+      {/*Suite skrol en bas de la page vers ("ICI" ligne1027) */}
+
       {/* Favicon*/}
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
       {/* Font Awesome icons (free version)*/}
@@ -72,9 +86,9 @@ export default function Home() {
               </li>
 
               <li className="nav-item">
-                <Link href="/connexion">
+                {/*<Link href="/connexion">
                   <a className="nav-link">Connexion</a>
-                </Link>
+  </Link> */}
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#contact">
@@ -105,7 +119,7 @@ export default function Home() {
           </div>
           <div className="masthead-heading text-uppercase">Bienvenue</div>
           <a className="btn btn-primary btn-xl text-uppercase" href="#services">
-            Nous connaîtree
+            Nous connaître
           </a>
         </div>
       </header>
@@ -1013,3 +1027,75 @@ export default function Home() {
     </>
   );
 }
+
+{
+  /*ICI */
+}
+{
+  /*Invité*/
+}
+/*function Guest() {
+  return (
+    <main className="container mx-auto text-center py-20">
+      <h3 className="text-4xl font-bold">Guest Homepage</h3>
+
+      <div className="flex justify-center">
+        <Link href={"/connexion"}>
+          <a className="mt-5 px-10 py-1 rounded-sm bg-indigo-500 text-gray-50">
+            Connexion
+          </a>
+        </Link>
+      </div>
+    </main>
+  );
+}*/
+
+{
+  /*Utilisateur Autorisé*/
+}
+function User({ session, handleSignOut }) {
+  return (
+    <main className="container mx-auto text-center py-20">
+      <h3 className="text-4xl font-bold">Authorize User Homepage</h3>
+
+      <div className="details">
+        <h5>{session.user.name}</h5>
+        <h5>{session.user.email}</h5>
+      </div>
+
+      <div className="flex justify-center">
+        <button
+          onClick={handleSignOut}
+          className="mt-5 px-10 py-1 rounded-sm bg-indigo-500 bg-gray-50"
+        >
+          Se déconnecter
+        </button>
+      </div>
+
+      <div className="flex justify-center">
+        <Link href={"/profil"}>
+          <a className="mt-5 px-10 py-1 rounded-sm bg-indigo-500 text-gray-50">
+            Mon profil
+          </a>
+        </Link>
+      </div>
+    </main>
+  );
+}
+
+/*export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/connexion",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  } 
+}*/
