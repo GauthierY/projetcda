@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Layout from "../layout/layout";
+import Layout from "../src/components/layout/layout";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
 import Image from "next/image";
@@ -70,11 +70,11 @@ export default function Connexion() {
               <HiAtSymbol size={25} />
             </span>
           </div>
-          {formik.errors.email && formik.touched.email ? (
+          {/*formik.errors.email && formik.touched.email ? (
             <span className="text-rose-500">{formik.errors.email}</span>
           ) : (
             <></>
-          )}
+          )*/}
           <div
             className={`${styles.input_group} ${
               formik.errors.password && formik.touched.password
@@ -97,7 +97,7 @@ export default function Connexion() {
             </span>
           </div>
 
-          {formik.errors.password && formik.touched.password ? (
+          {/*formik.errors.password && formik.touched.password ? (
             <span className="text-rose-500">{formik.errors.password}</span>
           ) : (
             <></>

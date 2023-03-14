@@ -8,6 +8,7 @@ import Navbar from "../src/components/Navbar";
 //import { Link } from "react-router-dom";
 import Link from "next/link";
 import { useState } from "react";
+import { getSession } from "next-auth/react";
 // import { getSession, useSession, signOut } from "next-auth/react";
 
 /*export default function Home() {
@@ -27,7 +28,10 @@ export default function Home() {
       <meta name="description" content="" />
       <meta name="author" content="" />
       <title>Canaan Sécurité & Gardiennage</title>
-
+      <>
+        <Navbar />
+        <h1>Canaan Sécurité & Gardiennage</h1>
+      </>
       {/*SESSION */}
       {/* {session ? User({ session, handleSignOut }) : Guest()} */}
       {/*Suite skrol en bas de la page vers ("ICI" ligne1027) */}
@@ -84,15 +88,14 @@ export default function Home() {
                   Moyens
                 </a>
               </li>
-
-              <li className="nav-item">
-                {/*<Link href="/connexion">
-                  <a className="nav-link">Connexion</a>
-  </Link> */}
-              </li>
               <li className="nav-item">
                 <a className="nav-link" href="#contact">
                   Contact
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#connexion">
+                  Connexion
                 </a>
               </li>
             </ul>

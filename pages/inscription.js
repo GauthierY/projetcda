@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Layout from "../layout/layout";
+import Layout from "../src/components/layout/layout";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
 import Image from "next/image";

@@ -1,17 +1,27 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
+
 const Navbar = () => {
   return (
-    <div className="navigation">
+    <nav>
       <ul>
-        <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
-          <li></li>
-        </NavLink>
-        <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
-          <li></li>
-        </NavLink>
+        <li>
+          <Link href="/services">Services</Link>
+        </li>
+        <li>
+          <Link href="/secteurs">Secteurs</Link>
+        </li>
+        <li>
+          <Link href="/moyens">Moyens</Link>
+        </li>
+        <li>
+          <Link href="/contact">Contact</Link>
+        </li>
+        <li>
+          <Link href="/connexion">Connexion</Link>
+        </li>
       </ul>
-    </div>
+    </nav>
   );
 };
+
 export default Navbar;
